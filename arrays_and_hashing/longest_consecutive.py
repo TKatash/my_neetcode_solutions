@@ -1,18 +1,20 @@
-nums = [2, 20, 4, 10, 3, 4, 5]
+s = "Was it a car or a cat I saw?"
 
 
-def longestConsecutive(nums):
-    num_set = set(nums)
-    counter = 0
-    max_counter = 0
-    for i in num_set:
-        counter = 0
-        if i - 1 not in num_set:
-            while i + counter in num_set:
-                counter += 1
-        if counter > max_counter:
-            max_counter = counter
-    return max_counter
+def isPalidrome(s: str) -> bool:
+    left = 0
+    right = len(s) - 1
+    while left < right:
+        while left < right and not s[left].isalnum():
+            left += 1
+        while left < right and not s[right].isalnum():
+            right -= 1
+        if s[left].lower() != s[right].lower():
+            return False
+        left += 1
+        right -= 1
+
+    return True
 
 
-print(longestConsecutive(nums))
+print(isPalidrome(s))
