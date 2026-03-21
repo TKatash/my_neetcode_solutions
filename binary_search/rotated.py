@@ -2,11 +2,11 @@ from typing import List
 
 
 def findMin(nums: List[int]) -> int:
-    l, r = 0, len(nums) - 1  # noqa: E741
-    while l < r:
-        mid = (l + r) // 2
-        if nums[mid] > nums[r]:
-            l = mid + 1
+    left, right = 0, len(nums) - 1
+    while left < right:
+        mid = (left + right) // 2
+        if nums[mid] > nums[right]:
+            left = mid + 1
         else:
-            r = mid
-    return nums[r]
+            right = mid
+    return nums[right]
